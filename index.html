@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GUESS MASTER</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#222;
+color:white;
+text-align:center;
+margin:0;
+padding:20px;
+}
+
+.box{
+max-width:400px;
+margin:auto;
+background:#333;
+padding:20px;
+border-radius:15px;
+}
+
+button{
+padding:12px;
+margin:8px;
+font-size:18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+input{
+padding:10px;
+font-size:18px;
+width:80%;
+text-align:center;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🎮 GUESS MASTER</h1>
+
+<p>เลือกระดับ</p>
+
+<button onclick="start(10)">😊 ง่าย</button>
+<button onclick="start(30)">😎 ปานกลาง</button>
+<button onclick="start(50)">🔥 ยาก</button>
+
+<br><br>
+
+<input id="guess" type="number" placeholder="ใส่ตัวเลข">
+
+<br><br>
+
+<button onclick="check()">ทาย</button>
+
+<h2 id="result"></h2>
+
+</div>
+
+<script>
+
+let answer=0;
+
+function start(max){
+
+answer=Math.floor(Math.random()*max)+1;
+
+document.getElementById("result").innerHTML="เริ่มเกมแล้ว ทายเลข 1-"+max;
+
+}
+
+function check(){
+
+let g=parseInt(document.getElementById("guess").value);
+
+if(g===answer){
+
+document.getElementById("result").innerHTML="🎉 ถูกต้อง";
+
+}else if(g<answer){
+
+document.getElementById("result").innerHTML="⬆️ มากกว่านี้";
+
+}else{
+
+document.getElementById("result").innerHTML="⬇️ น้อยกว่านี้";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
